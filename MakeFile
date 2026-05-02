@@ -1,0 +1,18 @@
+
+PYTHON = python3
+SRC = SnowPackMonitor.py
+ 
+.PHONY: all run clean
+ 
+all:
+	@$(PYTHON) -m py_compile $(SRC)
+	@echo All files compiled
+ 
+run:
+	@$(PYTHON) $(SRC)
+ 
+clean:
+	@del /s /q *.pyc 2>nul || true
+	@del /s /q *.txt 2>nul || true
+	@if exist __pycache__ rd /s /q __pycache__
+	@echo Cleaned all compiled Python files and .txt files.
